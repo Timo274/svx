@@ -1,0 +1,29 @@
+[package]
+name = "svx-relay"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Rendezvous WebSocket relay for svx"
+repository.workspace = true
+
+[[bin]]
+name = "svx-relay"
+path = "src/main.rs"
+
+[dependencies]
+svx-core = { path = "../svx-core" }
+tokio = { workspace = true }
+axum = { workspace = true }
+tower = { workspace = true }
+tower-http = { workspace = true }
+futures-util = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+dashmap = { workspace = true }
+uuid = { workspace = true }
+rand = { workspace = true }
+once_cell = { workspace = true }

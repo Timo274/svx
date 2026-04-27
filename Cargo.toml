@@ -1,0 +1,61 @@
+[workspace]
+resolver = "2"
+members = ["crates/svx-core", "crates/svx-relay", "crates/svx-cli"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+authors = ["svx contributors"]
+repository = "https://github.com/Timo274/svx"
+description = "Secure, end-to-end encrypted transfer of a Solana validator's identity between servers"
+
+[workspace.dependencies]
+# Async runtime
+tokio = { version = "1.40", features = ["full"] }
+tokio-tungstenite = { version = "0.24", features = ["connect", "handshake", "rustls-tls-native-roots"], default-features = false }
+rustls = { version = "0.23", default-features = false, features = ["ring", "std", "logging", "tls12"] }
+futures-util = "0.3"
+
+# Web server (relay)
+axum = { version = "0.7", features = ["ws", "macros"] }
+tower = "0.5"
+tower-http = { version = "0.6", features = ["cors", "trace", "timeout"] }
+
+# Crypto
+age = { version = "0.11", features = ["armor"] }
+ed25519-dalek = { version = "2.1", features = ["rand_core", "pkcs8"] }
+x25519-dalek = { version = "2.0", features = ["static_secrets"] }
+sha2 = "0.10"
+rand = "0.8"
+zeroize = { version = "1.8", features = ["derive"] }
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+bs58 = "0.5"
+base64 = "0.22"
+
+# Error handling / logging
+anyhow = "1.0"
+thiserror = "1.0"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# CLI
+clap = { version = "4.5", features = ["derive", "env"] }
+dialoguer = "0.11"
+indicatif = "0.17"
+console = "0.15"
+
+# Misc
+url = "2.5"
+uuid = { version = "1.11", features = ["v4"] }
+dashmap = "6.1"
+once_cell = "1.20"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+strip = true

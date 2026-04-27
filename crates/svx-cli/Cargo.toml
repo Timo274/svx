@@ -1,0 +1,37 @@
+[package]
+name = "svx-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "CLI for secure transfer of Solana validator identity keys"
+repository.workspace = true
+
+[[bin]]
+name = "svx"
+path = "src/main.rs"
+
+[[bin]]
+name = "svx-gen-test-identity"
+path = "src/bin/gen-test-identity.rs"
+
+[dependencies]
+svx-core = { path = "../svx-core" }
+ed25519-dalek = { workspace = true }
+bs58 = { workspace = true }
+tokio = { workspace = true }
+tokio-tungstenite = { workspace = true }
+rustls = { workspace = true }
+futures-util = { workspace = true }
+clap = { workspace = true }
+dialoguer = { workspace = true }
+indicatif = { workspace = true }
+console = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+url = { workspace = true }
+rand = { workspace = true }
+base64 = { workspace = true }

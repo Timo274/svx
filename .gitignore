@@ -1,0 +1,22 @@
+# Rust
+/target
+**/*.rs.bk
+Cargo.lock.bak
+
+# Node / Vite
+node_modules/
+dist/
+.vite/
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Keys — defensive. Real identities MUST never live in the repo.
+validator-keypair.json
+*.pem
+*.key
+/tmp-identity*.json

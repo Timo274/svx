@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply bg-ink-900 text-slate-100 antialiased;
+  }
+  body {
+    @apply font-sans;
+    background:
+      radial-gradient(1200px 600px at 10% -10%, rgba(153,69,255,0.18), transparent 60%),
+      radial-gradient(1000px 500px at 90% 0%, rgba(20,241,149,0.10), transparent 60%),
+      linear-gradient(180deg, #0a0a0f 0%, #0a0a0f 100%);
+    min-height: 100vh;
+  }
+  code, pre { @apply font-mono; }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-md font-medium transition;
+  }
+  .btn-primary {
+    @apply btn bg-accent-purple hover:bg-[#a959ff] text-white shadow-glow;
+  }
+  .btn-ghost {
+    @apply btn border border-ink-500 text-slate-200 hover:bg-ink-700;
+  }
+  .chip {
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-ink-700 border border-ink-500 text-slate-300;
+  }
+  .card {
+    @apply rounded-xl border border-ink-500 bg-ink-800/70 p-6;
+  }
+  .kbd {
+    @apply px-1.5 py-0.5 text-xs rounded bg-ink-700 border border-ink-500 text-slate-200;
+  }
+  .code-block {
+    @apply rounded-lg border border-ink-500 bg-ink-800/90 text-slate-200 text-sm p-4 overflow-x-auto;
+  }
+}
